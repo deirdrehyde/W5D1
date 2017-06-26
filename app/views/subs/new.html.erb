@@ -1,0 +1,13 @@
+<h1>New Post</h1>
+
+<form action="<%= subs_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label>Title:
+    <input type="text" value="sub[title]">
+  </label>
+
+  <label>Description:
+    <input type="text" value="sub[description]">
+  </label>
+</form>
