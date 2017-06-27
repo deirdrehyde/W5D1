@@ -1,6 +1,12 @@
 class Sub < ActiveRecord::Base
   validates :title, :description, presence: true
-  validates :moderator_id, presence: true, uniqueness: true
+  validates :moderator_id, presence: true
 
-  has_one :moderator, class_name: :User
+  belongs_to :moderator, class_name: :User
+
+  has_many :post_subs
+
+  has_many :posts,
+    through: :post_subs,
+    source: :post
 end

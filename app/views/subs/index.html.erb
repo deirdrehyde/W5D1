@@ -1,1 +1,14 @@
 <h1>All the Subs!</h1>
+
+
+<ul>
+  <% @subs.each do |sub| %>
+    <li><%= link_to sub.title, sub_url(sub) %></li>
+
+  <% end %>
+</ul>
+
+<form action="subs_url" method="post">
+
+
+</form>

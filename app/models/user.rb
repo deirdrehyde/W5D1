@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
   after_initialize :ensure_session_token
   attr_reader :password
 
+  has_many :subs, foreign_key: :moderator_id
+  has_many :posts, foreign_key: :author_id
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     return nil unless user && user.is_password?(password)

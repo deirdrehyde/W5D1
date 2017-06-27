@@ -23,7 +23,4 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
-  def require_moderator_status
-    sub.moderator_id == current_user.id
-  end
 end

@@ -8,11 +8,12 @@
 </head>
 <body>
 
-<%= yield %>
 
 <% if logged_in? %>
   <%= current_user.username %>
   <%= button_to "Sign Out", session_url, method: :delete %>
+  <%= link_to "Create a sub!", new_sub_url %>
+  <%= link_to "All subs!", subs_url %>
 <% else %>
   <%= link_to "Sign In", new_session_url %>
   <%= link_to "Sign Up", new_user_url %>
@@ -21,6 +22,8 @@
 <% flash[:errors].try(:each) do |err| %>
   <%= err %>
 <% end %>
+
+<%= yield %>
 
 </body>
 </html>
